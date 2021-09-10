@@ -6,6 +6,6 @@ class Converter {
         int sum;
         vector<int> digits;
     public:
-        int bincon(vector<int> binary);
+        int ToDecimal(vector<int> digits, int base);
         vector<int> deccon(int decimal);
 };
