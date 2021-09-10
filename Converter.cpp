@@ -1,7 +1,7 @@
 #include "Converter.h"
 
 // Convert a number in an arbitrary base to decimal
-int Converter::ToDecimal(vector<int> num, int base) {
+int Converter::toDecimal(vector<int> num, int base) {
 
     sum = 0;
 
@@ -13,13 +13,13 @@ int Converter::ToDecimal(vector<int> num, int base) {
 }
 
 // Convert decimal to binary /* NON-WORKING */
-vector<int> Converter::deccon(int decimal) {
+vector<int> Converter::toBase(int decimal, int base) {
 
     sum = decimal;
 
     while (sum >= 1) {
-        digits.push_back(sum % 2);
-        sum = floor(sum / 2);
+        digits.push_back(sum % base);
+        sum = floor(sum / base);
     }
 
     return digits;

@@ -6,6 +6,6 @@ class Converter {
         int sum;
         vector<int> digits;
     public:
-        int ToDecimal(vector<int> digits, int base);
-        vector<int> deccon(int decimal);
+        int toDecimal(vector<int> digits, int base);
+        vector<int> toBase(int decimal, int base);
 };
