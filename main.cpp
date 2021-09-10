@@ -10,7 +10,7 @@ int main() {
     int temp, decimal, base, change;
     string binary;
     vector<int> digits;
-
+    
     cout << "Enter the base of the number: ";
     cin >> base;
 
@@ -61,7 +61,7 @@ int main() {
                 digits.push_back(static_cast<int>(i) - 48); // ASCII digits start at 48 (0)
             }
         }
-        
+
         temp = convert.toDecimal(digits, base);
         digits = convert.toBase(temp, change); // Now that digits has been used, it can be overwritten and re-used
 
