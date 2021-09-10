@@ -1,7 +1,5 @@
 #include "Inclusion.h"
-#include "Converter.h"
-
-void read (string &var);
+#include "Converter.cpp"
 
 int main() {
 
@@ -19,13 +17,8 @@ int main() {
         digits.push_back(static_cast<int>(i) - 48); // ASCII digits start at 48 (0)
     }
 
-    convert.bincon(digits);
+    int test = convert.bincon(digits);
+    cout << test << endl;
 
     return 0;
-}
-
-/* POTENTIAL TOOL - IN PROGRESS */
-
-void read (string &var) {
-    getline(cin, var);
 }

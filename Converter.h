@@ -1,7 +1,10 @@
+#pragma once
 #include "Inclusion.h"
 
 class Converter {
+    private:
+        int sum = 0;
     public:
         Converter();
-        void bincon(vector<int> binary);
+        int bincon(vector<int> binary);
 };
