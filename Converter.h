@@ -3,8 +3,9 @@
 
 class Converter {
     private:
-        int sum = 0;
+        int sum;
+        vector<int> digits;
     public:
-        Converter();
         int bincon(vector<int> binary);
+        vector<int> deccon(int decimal);
 };
