@@ -13,17 +13,14 @@ int Converter::bincon(vector<int> binary) {
 }
 
 // Convert decimal to binary /* NON-WORKING */
-int Converter::deccon(int decimal) {
+vector<int> Converter::deccon(int decimal) {
 
-    sum = 0;
-    int temp = decimal;
+    sum = decimal;
 
-    while (temp >= 1) {
-        sum += temp % 2;
-        cout << sum << " ";
-        temp = floor(temp / 2);
-        cout << temp << endl;
+    while (sum >= 1) {
+        digits.push_back(sum % 2);
+        sum = floor(sum / 2);
     }
 
-    return sum;
+    return digits;
 }

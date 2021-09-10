@@ -26,7 +26,10 @@ int main() {
         cout << "Enter decimal to convert: ";
         cin >> decimal;
 
-        cout << convert.deccon(decimal) << endl;
+        digits = convert.deccon(decimal);
+        for (int i = 0; i < digits.size(); i++) {
+            cout << digits[digits.size() - 1 - i];
+        }
     }
 
     return 0;

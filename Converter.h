@@ -7,5 +7,5 @@ class Converter {
         vector<int> digits;
     public:
         int bincon(vector<int> binary);
-        int deccon(int decimal);
+        vector<int> deccon(int decimal);
 };
