@@ -8,7 +8,7 @@ int main() {
     Converter convert; // For converting the numbers
 
     int temp, decimal, base, change;
-    string binary;
+    string number;
     vector<int> digits;
     
     cout << "Enter the base of the number: ";
@@ -20,7 +20,7 @@ int main() {
         cin >> decimal;
     }
     else {
-        cin >> binary;
+        cin >> number;
     }
 
     cout << "Enter the base to convert to: ";
@@ -31,7 +31,7 @@ int main() {
         cout << "The number is already in that base!" << endl << endl;
     }
     else if (change == 10) {
-        for(char i : binary) {
+        for(char i : number) {
             if ((static_cast<int>(i) - 48) >= base) {
                 BoundError(static_cast<int>(i) - 48, base);
                 break;
@@ -52,7 +52,7 @@ int main() {
     }
     else {
         // Convert into decimal and then into the final base. Normally slow by hand but much faster (and thus pheasible) with a computer
-        for(char i : binary) {
+        for(char i : number) {
             if ((static_cast<int>(i) - 48) >= base) {
                 BoundError(static_cast<int>(i) - 48, base);
                 break;
