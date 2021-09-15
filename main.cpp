@@ -5,7 +5,7 @@ void BoundError(int num, int base);
 void revPrintVec(vector<int> vec);
 
 int main() {
-    
+
     Converter convert; // For converting the numbers
 
     int temp, decimal, base, change;
@@ -33,12 +33,23 @@ int main() {
     }
     else if (change == 10) {
         for(char i : number) {
-            if ((static_cast<int>(i) - 48) >= base) {
-                BoundError(static_cast<int>(i) - 48, base);
-                break;
+            if(letters.find(toupper(i)) != string::npos) { // Check if the digit is a letter
+                if (((int)(toupper(i)) - 55) >= base) {
+                    BoundError((int)(toupper(i)) - 55, base);
+                    break;
+                }
+                else {
+                    digits.push_back((int)(toupper(i)) - 55); // ASCII digits start at 48 (0) and letters for Hex are a shift of 55
+                }
             }
             else {
-                digits.push_back(static_cast<int>(i) - 48); // ASCII digits start at 48 (0)
+                if (((int)(i) - 48) >= base) {
+                    BoundError((int)(i) - 48, base);
+                    break;
+                }
+                else {
+                    digits.push_back((int)(i) - 48); // ASCII digits start at 48 (0)
+                }
             }
         }
         cout << "Final value: " << convert.toDecimal(digits, base) << endl << endl;
@@ -52,12 +63,12 @@ int main() {
     else {
         // Convert into decimal and then into the final base. Normally slow by hand but much faster (and thus pheasible) with a computer
         for(char i : number) {
-            if ((static_cast<int>(i) - 48) >= base) {
-                BoundError(static_cast<int>(i) - 48, base);
+            if (((int)(i) - 48) >= base) {
+                BoundError((int)(i) - 48, base);
                 break;
             }
             else {
-                digits.push_back(static_cast<int>(i) - 48); // ASCII digits start at 48 (0)
+                digits.push_back((int)(i) - 48); // ASCII digits start at 48 (0) and letters for Hex are a shift of 55
             }
         }
 
