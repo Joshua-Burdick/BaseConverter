@@ -63,12 +63,23 @@ int main() {
     else {
         // Convert into decimal and then into the final base. Normally slow by hand but much faster (and thus pheasible) with a computer
         for(char i : number) {
-            if (((int)(i) - 48) >= base) {
-                BoundError((int)(i) - 48, base);
-                break;
+            if(letters.find(toupper(i)) != string::npos) { // Check if the digit is a letter
+                if (((int)(toupper(i)) - 55) >= base) {
+                    BoundError((int)(toupper(i)) - 55, base);
+                    break;
+                }
+                else {
+                    digits.push_back((int)(toupper(i)) - 55); // ASCII digits start at 48 (0) and letters for Hex are a shift of 55
+                }
             }
             else {
-                digits.push_back((int)(i) - 48); // ASCII digits start at 48 (0) and letters for Hex are a shift of 55
+                if (((int)(i) - 48) >= base) {
+                    BoundError((int)(i) - 48, base);
+                    break;
+                }
+                else {
+                    digits.push_back((int)(i) - 48); // ASCII digits start at 48 (0)
+                }
             }
         }
 
