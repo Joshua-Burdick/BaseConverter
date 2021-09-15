@@ -12,7 +12,7 @@ int Converter::toDecimal(vector<int> num, int base) {
     return sum;
 }
 
-// Convert decimal to binary /* NON-WORKING */
+// Convert decimal to binary
 vector<int> Converter::toBase(int decimal, int base) {
 
     sum = decimal;
