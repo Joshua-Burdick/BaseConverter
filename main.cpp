@@ -2,9 +2,10 @@
 #include "Converter.cpp"
 
 void BoundError(int num, int base);
+void revPrintVec(vector<int> vec);
 
 int main() {
-
+    
     Converter convert; // For converting the numbers
 
     int temp, decimal, base, change;
@@ -45,9 +46,7 @@ int main() {
     else if (base == 10) {
         digits = convert.toBase(decimal, change);
         cout << "Final value: ";
-        for (int i = 0; i < digits.size(); i++) {
-            cout << digits[digits.size() - 1 - i];
-        }
+        revPrintVec(digits);
         cout << endl << endl;
     }
     else {
@@ -67,9 +66,7 @@ int main() {
 
         // Print the results
         cout << "Final value: ";
-        for (int i = 0; i < digits.size(); i++) {
-            cout << digits[digits.size() - 1 - i];
-        }
+        revPrintVec(digits);
         cout << endl << endl;
     }
 
@@ -78,4 +75,15 @@ int main() {
 
 void BoundError(int num, int base) {
     cout << "Error: " << num << " is out of bounds for base " << base << endl << endl;
+}
+
+void revPrintVec(vector<int> vec) { // Print the contents of a vector from last element to first
+    for(int i = 0; i < vec.size(); i++) {
+        if(vec[vec.size() - 1 - i] < 10) {
+            cout << vec[vec.size() - 1 - i];
+        }
+        else {
+            cout << (char)(vec[vec.size() - 1 - i] + 55);
+        }
+    }
 }

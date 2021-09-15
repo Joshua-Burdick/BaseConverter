@@ -7,4 +7,5 @@
 
 using namespace std;
 
-string characters = "0123456789ABCDEF";
+char letArr[6] = {'A', 'B', 'C', 'D', 'E', 'F'};
+string letters = "ABCDEF";
