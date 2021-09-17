@@ -13,6 +13,7 @@ int Converter::toDecimal(vector<int> num, int base) {
 }
 
 // Convert decimal to an arbitrary base
+
 vector<int> Converter::toBase(int decimal, int base) {
 
     sum = decimal;
