@@ -1,12 +1,11 @@
 #include "Inclusion.h"
-#include "Converter.cpp"
 
 void BoundError(int num, int base);
 void revPrintVec(vector<int> vec);
+int toDecimal(vector<int> digits, int base);
+vector<int> toBase(int decimal, int base);
 
 int main() {
-
-    Converter convert; // For converting the numbers
 
     int temp, decimal, base, change;
     string number;
@@ -52,10 +51,10 @@ int main() {
                 }
             }
         }
-        cout << "Final value: " << convert.toDecimal(digits, base) << endl << endl;
+        cout << "Final value: " << toDecimal(digits, base) << endl << endl;
     }
     else if (base == 10) {
-        digits = convert.toBase(decimal, change);
+        digits = toBase(decimal, change);
         cout << "Final value: ";
         revPrintVec(digits);
         cout << endl << endl;
@@ -83,8 +82,8 @@ int main() {
             }
         }
 
-        temp = convert.toDecimal(digits, base);
-        digits = convert.toBase(temp, change); // Now that digits has been used, it can be overwritten and re-used
+        temp = toDecimal(digits, base);
+        digits = toBase(temp, change); // Now that digits has been used, it can be overwritten and re-used
 
         // Print the results
         cout << "Final value: ";
@@ -108,4 +107,26 @@ void revPrintVec(vector<int> vec) { // Print the contents of a vector from last 
             cout << (char)(vec[vec.size() - 1 - i] + 55);
         }
     }
+}
+
+int toDecimal(vector<int> num, int base) {
+    int sum = 0;
+
+    for(int i = 0; i < num.size(); i++) {
+        sum += num[i] * pow(base, num.size() - 1 - i); // Multiply each entry by [base] to the entry's power and add them together
+    }
+
+    return sum;
+}
+
+vector<int> toBase(int decimal, int base) {
+    int sum = decimal;
+    vector<int> digits;
+
+    while (sum >= 1) {
+        digits.push_back(sum % base);
+        sum = floor(sum / base);
+    }
+
+    return digits;
 }
